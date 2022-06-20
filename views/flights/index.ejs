@@ -18,7 +18,24 @@
         <tr>
           <td><%= flight.airline %></td>
           <td><%= flight.airport %></td>
-          <td><%= flight.flightNo %> <a href='flights/<%= flight._id %>''>...</a></td>
+          <td>
+            <%= flight.flightNo %> <a href='#offcanvasOptions' class="text-muted text-decoration-none" data-bs-toggle="offcanvas" role="button">...</a>
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasOptions" aria-labelledby="offcanvasLabel">
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Options</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <h4 class="mb-3">Flight <%= flight.flightNo %> </h4>
+                <form
+                action="/flights/<%= flight._id %>?_method=DELETE"
+                method="POST"
+                >
+                  <a href="/flights/<%= flight._id %> " class="btn btn-primary">Flight Details</a>
+                  <button type="submit" class="btn btn-danger">Delete Flight</button>
+                </form>
+              </div>
+          </td>
           <td><%= flight.departs.toLocaleString() %></td>
         </tr>
       <% }) %> 
