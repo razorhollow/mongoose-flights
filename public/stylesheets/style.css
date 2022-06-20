@@ -13,3 +13,11 @@
   background-color: #F4B942;
   color: white;
 }
+
+.form-check-input:checked {
+  background-color: #4059AD;
+}
+
+#navbarNav {
+  justify-content: end;
+}

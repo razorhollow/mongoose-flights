@@ -1,4 +1,5 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/style.css">
 <link rel="stylesheet" href="/stylesheets/show.css" />
 <%- include('../partials/nav') %>
 
@@ -18,11 +19,11 @@
   <div class="row">
     <div class="col">
       <h4><%= flight.airline %> Airlines</h4>
-      <h4>Flight <%= flight.flightNo %> </h4>
+      <h5>Flight <%= flight.flightNo %> </h5>
     </div>
     <div class="col">
       <h4><%= flight.airport %> </h4>
-      <h4><%= flight.departs.toLocaleString() %> </h4>
+      <p><%= flight.departs.toLocaleString() %> </p>
     </div>
   </div>
   <a href="/flights/<%= flight._id %>/edit" class="btn btn-primary mb-2">Edit Flight Details</a>
