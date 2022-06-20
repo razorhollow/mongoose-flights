@@ -1,0 +1,55 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/flights/{changme}.css" />
+<%- include('../partials/nav') %>
+
+<form class="container w-50" method="POST" action="/flights/<%= flight._id %>?_method=PUT" autocomplete="off">
+  <div class="row mb-3">
+    <label for="flight-no" class="col-sm-2 col-form-label">Flight Number</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" id="flight-no" name="flightNo" value="<%= flight.flightNo %>">
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label for="departs" class="col-sm-2 col-form-label">Departs</label>
+    <div class="col-sm-10">
+      <input type="datetime-local" class="form-control" id="departs" name="departs" value="<%= flight.departs %>">
+    </div>
+  </div>
+  <fieldset class="row mb-3" value="<%= flight.airline %>">
+    <legend class="col-form-label col-sm-2 pt-0">Airline</legend>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="airline" id="gridRadios1" value="American" checked>
+        <label class="form-check-label" for="gridRadios1">
+          American
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="airline" id="gridRadios2" value="Southwest">
+        <label class="form-check-label" for="gridRadios2">
+          Southwest
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="airline" id="gridRadios3" value="United">
+        <label class="form-check-label" for="gridRadios3">
+          United
+        </label>
+      </div>
+    </div>
+  </fieldset>
+  <select name="airport" id="airport" class="form-select" value="<%= flight.airport %>">
+    <option selected>Airport</option>
+    <option value="AUS">AUS | Austin-Bergstrom International</option>
+    <option value="DFW">DFW | Dallas-Fort Worth International</option>
+    <option value="DEN">DEN | Denver International</option>
+    <option value="LAX">LAX | Los Angeles International</option>
+    <option value="SAN">SAN | San Diego International</option>
+  </select>
+  <div class="row mb-3">
+  </div>
+  <button type="submit" class="btn btn-primary">Save Changes</button>
+  <a href="/flights" class="btn btn-primary">Cancel</a>
+</form>
+
+<%- include('../partials/footer') %>

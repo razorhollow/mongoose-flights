@@ -1,8 +1,15 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+.btn-primary {
+  background-color: #4059AD;
+  border-color: #4059AD;
 }
 
-a {
-  color: #00B7FF;
+.btn-outline {
+  color: #4059AD;
+  border-color: #4059AD;
+}
+
+.btn-outline:hover {
+  background-color: #F4B942;
+  color: white;
 }

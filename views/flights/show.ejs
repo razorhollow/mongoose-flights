@@ -2,14 +2,29 @@
 <link rel="stylesheet" href="/stylesheets/show.css" />
 <%- include('../partials/nav') %>
 
-<header class="container-fluid text-bg-primary">
-  <h2><i class="fa-solid fa-plane"></i> Flight Information</h2>
+<header class="container-fluid show-header" >
+  <h2 class="p-3" id="show-header"><i class="fa-solid fa-plane"></i> Flight Information</h2>
 </header>
 
-<div class="container">
-  <h2>Flight Id | <%= flight._id %> </h2>
-  <h2><%= flight.airline %> </h2>
-  <h2><%= flight.flightNo %> </h2>
+<div class="container" id="detail-card">
+  <div class="row text-bg-secondary">
+    <div class="col">
+      <h4>Flight</h4>
+    </div>
+    <div class="col">
+      <h4>Depart</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h4><%= flight.airline %> Airlines</h4>
+      <h4>Flight <%= flight.flightNo %> </h4>
+    </div>
+    <div class="col">
+      <h4><%= flight.airport %> </h4>
+      <h4><%= flight.departs.toLocaleString() %> </h4>
+    </div>
+  </div>
+  <a href="/flights/<%= flight._id %>/edit" class="btn btn-primary mb-2">Edit Flight Details</a>
 </div>
-
 <%- include('../partials/footer') %>

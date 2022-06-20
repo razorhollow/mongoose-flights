@@ -1,0 +1,24 @@
+body {
+  background-color: #EFF2F1;
+}
+
+.row {
+border-radius: 10px 10px 0 0;
+}
+
+.btn-primary {
+  background-color: #4059AD;
+  border-color: #4059AD;
+}
+
+#detail-card {
+  border: 1px solid #EFF2F1;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 2px 2px 20px gray;
+}
+
+.show-header {
+  background-color: #4059AD;
+  color: white;
+}
