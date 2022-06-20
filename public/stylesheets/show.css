@@ -7,6 +7,10 @@ h5 {
   margin-bottom: 20%;
 }
 
+i {
+  margin: 0 .5rem;
+}
+
 .row {
 border-radius: 10px 10px 0 0;
 }

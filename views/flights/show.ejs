@@ -23,7 +23,7 @@
     </div>
     <div class="col">
       <h4><%= flight.airport %> </h4>
-      <p><%= flight.departs.toLocaleString() %> </p>
+      <p><%= flight.departs.toLocaleDateString() %>  <i class="fa-light fa-timer"></i>  <%= flight.departs.toLocaleTimeString(undefined, {hour: '2-digit', minute: '2-digit'}) %> </p>
     </div>
   </div>
   <a href="/flights/<%= flight._id %>/edit" class="btn btn-primary mb-2">Edit Flight Details</a>
