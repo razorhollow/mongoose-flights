@@ -1,0 +1,15 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/show.css" />
+<%- include('../partials/nav') %>
+
+<header class="container-fluid text-bg-primary">
+  <h2><i class="fa-solid fa-plane"></i> Flight Information</h2>
+</header>
+
+<div class="container">
+  <h2>Flight Id | <%= flight._id %> </h2>
+  <h2><%= flight.airline %> </h2>
+  <h2><%= flight.flightNo %> </h2>
+</div>
+
+<%- include('../partials/footer') %>
