@@ -8,10 +8,10 @@ function index(req, res){
       title: "Flights"
     })
   })
-    .catch(error => {
-      console.log(error)
-      res.redirect('/')
-    })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/')
+  })
 }
 
 function newFlight(req, res){
@@ -26,12 +26,12 @@ function newFlight(req, res){
 
 function create(req, res){
   Flight.create(req.body)
-  .then(
+  .then(flight => {
     res.redirect('/flights')
-  )
+  })
   .catch(error => {
     console.log(error)
-    res.redirect('/')
+    res.redirect('/flights')
   })
 }
 
