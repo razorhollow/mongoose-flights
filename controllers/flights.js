@@ -3,6 +3,13 @@ import { Flight } from '../models/flight.js'
 function index(req, res){
   Flight.find({})
   .then(flights => {
+    //check each flight.departs against today's date
+    flights.forEach(flight => {
+      const today = new Date
+      if(flight.departs.toISOString() < today.toISOString()) {
+        flight.color = "red"
+      }
+    })
     res.render("flights/index",{
       flights: flights,
       title: "Flights"
