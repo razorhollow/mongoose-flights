@@ -18,6 +18,10 @@ function newFlight(req, res){
   res.render("flights/new", {
     title: "Add Flight"
   })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/flights')
+  })
 }
 
 function create(req, res){
@@ -38,6 +42,10 @@ function show(req, res){
       flight: flight,
       title: "Flight Details"
     })
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/flights')
   })
 }
 
