@@ -27,5 +27,56 @@
     </div>
   </div>
   <a href="/flights/<%= flight._id %>/edit" class="btn btn-primary mb-2">Edit Flight Details</a>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Add Ticket
+  </button>
+
+<!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Ticket</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form 
+            action="/flights/<%= flight._id %>/tickets"
+            id="add-ticket-form"
+            method="POST"
+          >
+            <label for="seat-number" class="form-label">Seat Number</label>
+            <input type="text" class="form-control" id="seat-number"  name="seat">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" class="form-control" id="price"  name="price">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" id="add-ticket">Add Ticket</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
+<% if (flight.tickets.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Seat Number</th>
+        <th>Price</th>
+      </tr>
+      <tbody>
+        <% flight.tickets.forEach(ticket => { %>
+          <tr>
+            <td><%= ticket.seat %> </td>
+            <td><%= ticket.price %> </td>
+          </tr>
+        <% }) %>  
+      </tbody>
+    </thead>
+  </table>
+<% } %>  
+
 <%- include('../partials/footer') %>
