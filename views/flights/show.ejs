@@ -81,11 +81,18 @@
     </table>
 </div>
 <div class="container" id="meals">
+  <h3>Current Meals</h3>
+  <ul class="list-group">
+    <% flight.meals.forEach(meal => { %> 
+      <li class="list-group-item
+      "><%= meal.meal %></li>
+    <% }) %> 
+  </ul>
   <form action="/flights/<%= flight._id %>/meals" method="POST">
     <h3 class="m-5">Add A Meal</h3>
     <select class="form-select mt-3" name="mealId"> //I'm stuck here. Can't figure out how to pass just the id and not the whole object
     <% meals.forEach(function(meal) { %>
-        <option value="<%= meal._id %> "><%= meal.meal %></option>
+        <option value="<%= meal._id %>"><%= meal.meal %></option>
       <% }) %>
       </select>
     <button class="btn btn-outline-secondary mt-2" type="submit">Add Meal</button>
