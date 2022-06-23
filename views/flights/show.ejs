@@ -90,7 +90,7 @@
   </ul>
   <form action="/flights/<%= flight._id %>/meals" method="POST">
     <h3 class="m-5">Add A Meal</h3>
-    <select class="form-select mt-3" name="mealId"> //I'm stuck here. Can't figure out how to pass just the id and not the whole object
+    <select class="form-select mt-3" name="mealId"> 
     <% meals.forEach(function(meal) { %>
         <option value="<%= meal._id %>"><%= meal.meal %></option>
       <% }) %>

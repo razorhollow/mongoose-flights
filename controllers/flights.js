@@ -118,7 +118,6 @@ function addMeal(req, res) {
   Flight.findById(req.params.id)
   .then(flight => {
     //add the meal _id to the meals array
-    console.log("This is the body: ",req.body)
     flight.meals.push(req.body.mealId)
     //save the flight
     flight.save()
