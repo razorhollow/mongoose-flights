@@ -19,6 +19,9 @@ router.post('/', flightsCtrl.create)
 
 router.post('/:id/tickets', flightsCtrl.createTicket)
 
+//POST --localhost:3000/flights/:flightid/meals
+router.post('/:id/meals', flightsCtrl.addMeal)
+
 //PUT --localhost:3000/flights/:id
 router.put('/:id', flightsCtrl.update)
 

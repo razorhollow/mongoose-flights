@@ -61,22 +61,35 @@
   </div>
 </div>
 <% if (flight.tickets.length) { %>
-  <table>
-    <thead>
-      <tr>
-        <th>Seat Number</th>
-        <th>Price</th>
-      </tr>
-      <tbody>
-        <% flight.tickets.forEach(ticket => { %>
-          <tr>
-            <td><%= ticket.seat %> </td>
-            <td><%= ticket.price %> </td>
-          </tr>
-        <% }) %>  
-      </tbody>
-    </thead>
-  </table>
+  <div class="container d-flex justify-content-center"></div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Seat Number</th>
+          <th>Price</th>
+        </tr>
+        <tbody>
+          <% flight.tickets.forEach(ticket => { %>
+            <tr>
+              <td><%= ticket.seat %> </td>
+              <td><%= ticket.price %> </td>
+            </tr>
+          <% }) %>  
 <% } %>  
+        </tbody>
+      </thead>
+    </table>
+</div>
+<div class="container" id="meals">
+  <form action="/flights/<%= flight._id %>/meals" method="POST">
+    <h3 class="m-5">Add A Meal</h3>
+    <select class="form-select mt-3" name="mealId"> //I'm stuck here. Can't figure out how to pass just the id and not the whole object
+    <% meals.forEach(function(meal) { %>
+        <option value="<%= meal._id %> "><%= meal.meal %></option>
+      <% }) %>
+      </select>
+    <button class="btn btn-outline-secondary mt-2" type="submit">Add Meal</button>
+  </form>
+</div>
 
 <%- include('../partials/footer') %>
